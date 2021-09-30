@@ -36,7 +36,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Note:</strong>
-                    <textarea class="form-control" style="height:150px" name="notes" placeholder="Note"></textarea>
+                    <textarea class="form-control" style="height:150px" name="notes" placeholder="Note {'key': value} format"></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
