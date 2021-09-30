@@ -19,6 +19,10 @@ class HtmlToTextController
 
     public function convert(Request $request)
     {
+        $request->validate([
+            'url' => 'required|url',
+        ]);
+
         $url = $request->get('url');
         $html = file_get_contents($url);
         $this->htmlToText->setHtml(html_entity_decode($html));

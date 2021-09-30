@@ -37,6 +37,13 @@
                     </ul>
                 </td>
                 <td>
+
+                    <form action="{{ route('convertToHtml') }}" method="POST">
+                        @csrf
+                        <input type="hidden" class="form-control" placeholder="URL" name="url" value="{{$wordDensity->url}}" hidden>
+                        <button type="submit" class="btn btn-warning">Rerun</button>
+                    </form>
+
                     <a class="btn btn-info" href="{{ route('word-densities.show', $wordDensity->id) }}">Show</a>
 
                     <a class="btn btn-primary" href="{{ route('word-densities.edit', $wordDensity->id) }}">Edit</a>
@@ -46,18 +53,12 @@
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
-
-                    <form action="{{ route('convertToHtml') }}" method="POST">
-                        @csrf
-                        <input type="hidden" class="form-control" placeholder="URL" name="url" value="{{$wordDensity->url}}" hidden>
-                        <button type="submit" class="btn btn-warning">Rerun</button>
-                    </form>
                 </td>
             </tr>
         @endforeach
     </table>
 
-    <div class="row justify-content-center">
+    <div class="d-flex justify-content-center text-center">
         {!! $wordDensities->links() !!}
     </div>
 

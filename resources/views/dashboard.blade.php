@@ -1,17 +1,24 @@
 @extends('layout')
 
-@section('title')
-    Laravel Shopping Cart
-@endsection
-
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form id="signup" class="form-horizontal" role="form" method="POST" action="{{route('convertToHtml')}}">
         {!! csrf_field() !!}
 
         <div class="row">
             <div class="col-lg-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="URL" name="url">
+                    <input type="text" class="form-control" placeholder="URL" name="url" required>
                     <span class="input-group-btn">
                     <button class="btn btn-default" type="submit">Search</button>
                 </span>

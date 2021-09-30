@@ -23,8 +23,8 @@ class WordDensityController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'url' => 'required',
-            'notes' => 'required',
+            'url' => 'required|url',
+            'notes' => 'required|json',
         ]);
 
         WordDensity::create($request->all());
@@ -46,8 +46,8 @@ class WordDensityController extends Controller
     public function update(Request $request, WordDensity $wordDensity)
     {
         $request->validate([
-            'url' => 'required',
-            'notes' => 'required',
+            'url' => 'required|url',
+            'notes' => 'required|json',
         ]);
 
         $wordDensity->update($request->all());
